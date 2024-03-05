@@ -19,7 +19,7 @@ airbleb = st.selectbox('Does the patient have Intra-hematoma airbleb? 0: No     
 contusion = st.selectbox('Does the patient have contusion? 0: No     1: yes', [0,1])
 other_side_extra_axial_hematoma = st.selectbox('Does the patient have other side extra-axial hematoma? 0: No     1: yes', [0,1])
 edh_volume = st.number_input("Enter initial EDH volume")
-location= st.selectbox('Where is the location of the hematoma? Parietal1,Occipital2,Posterior fossa3,Frontotemporal4,Frontotemporoparietal5,Others6'
+location= st.selectbox('Where is the location of the hematoma? Parietal1 Occipital2 Posterior fossa3 Frontotemporal4 Frontotemporoparietal5 Others6'
                        [1,2,3,4,5,6])
 
 
