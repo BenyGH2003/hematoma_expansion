@@ -17,16 +17,16 @@ age = st.number_input("Enter the patient age")
 swirl_sign = st.selectbox('Does the patient have Swirl Sign? 0: No     1: yes', [0,1])
 airbleb = st.selectbox('Does the patient have Intra-hematoma airbleb? 0: No     1: yes', [0,1])
 contusion = st.selectbox('Does the patient have contusion? 0: No     1: yes', [0,1])
-other_side_extra_axial_hematoma = st.selectbox('Does the patient have other side extra-axial hematoma? 0: No     1: yes', [0,1])
 edh_volume = st.number_input("Enter initial EDH volume")
-location= st.selectbox('Where is the location of the hematoma? Parietal1,Occipital2,Posterior fossa3,Frontotemporal4,Frontotemporoparietal5,Others6',
-                       [1,2,3,4,5,6])
+location= st.selectbox('Where is the location of the hematoma? 1:Temporal   2:Temporoparietal   3: Parietal   4: Occipital   5: Posterior fossa   6:Temporooccipital   7:Frontal   8:Frontoparietal   9: Frontotemporal   10: Frontotemporoparietal   11:others',
+                       [1,2,3,4,5,6,7,8,9,10,11])
+other_side_extra_axial_hematoma = st.selectbox('Does the patient have other side extra-axial hematoma? 0: No     1: yes', [0,1])
 
 
 def predict(): 
     row = np.array([age,swirl_sign, airbleb,contusion,other_side_extra_axial_hematoma,edh_volume,location])
     X = pd.DataFrame([row], columns = columns)
-    prediction = model.predict(X)
+    prediction = model.predict_proba(X)
     if prediction[0] >= 0.2: 
         st.error('The EDH volume is more likely to be increased :heavy_exclamation_mark:')
     elif prediction[0] < 0.2:
