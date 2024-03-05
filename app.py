@@ -27,9 +27,9 @@ def predict():
     row = np.array([age,swirl_sign, airbleb,contusion,other_side_extra_axial_hematoma,edh_volume,location])
     X = pd.DataFrame([row], columns = columns)
     prediction = model.predict_proba(X)
-    if prediction[0][0] >= 0.2: 
+    if prediction[0][1] >= 0.2: 
         st.error('The EDH volume is more likely to be increased :heavy_exclamation_mark:')
-    elif prediction[0][0] < 0.2:
+    elif prediction[0][1] < 0.2:
         st.success('The EDH volume is more likely not to be increased :white_check_mark:')
         
 
