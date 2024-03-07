@@ -28,9 +28,9 @@ def predict():
     X = pd.DataFrame([row], columns = columns)
     prediction = model.predict_proba(X)
     if prediction[0][1] >= 0.2: 
-        st.error('The EDH volume is more likely to be increased :heavy_exclamation_mark:')
+        st.error('The patient is at High risk of developing EDH expansion, based on our model :heavy_exclamation_mark:')
     elif prediction[0][1] < 0.2:
-        st.success('The EDH volume is more likely not to be increased :white_check_mark:')
+        st.success('The patient is at Low risk of developing EDH expansion, based on our model :white_check_mark:')
         
 
 trigger = st.button('Predict', on_click=predict)
